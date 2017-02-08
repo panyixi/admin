@@ -430,3 +430,5 @@
                     list.js
 
 当我们需要使用`list.js`的时候，必须写如下的代码：`require("../biz1/js/list")`，但是从逻辑上说，更合理的写法应该是`require("../biz1/list")`。因此我们不推荐在`biz`下面对源代码资源划分目录。
+
+来源：https://github.com/ecomfe/spec/blob/master/directory.md

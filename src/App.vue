@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img src="./img/logo.png">
+    <img src="./common/img/logo.png">
     <h1></h1>
     <h2>Essential Links</h2>
     <ul>
@@ -31,5 +31,5 @@ export default {
 </script>
 
 <style scoped lang="sass">
-@import "./css/main.scss";
+@import "./common/css/main.scss";
 </style>
