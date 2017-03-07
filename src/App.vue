@@ -1,4 +1,11 @@
+<style scoped lang="sass">
+
+@import "./common/css/main.scss";
+
+</style>
+
 <template>
+
 <div id="app">
     <img src="./common/img/logo.png">
     <h1>{{msg}}</h1>
@@ -17,9 +24,11 @@
         <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
     </ul>
 </div>
+
 </template>
 
 <script>
+
 export default {
     name: 'app',
     data() {
@@ -28,6 +37,5 @@ export default {
         }
     }
 }
-</script>
 
-<style scoped lang="sass">@import "./common/css/main.scss";</style>
+</script>
