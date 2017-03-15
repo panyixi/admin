@@ -1,6 +1,17 @@
-<style scoped lang="sass">
+<style scoped lang="scss">
 
 @import "./common/css/main.scss";
+.view {
+    &.one {
+        color: #333;
+    }
+    &.two {
+        color: blue;
+    }
+    &.three {
+        color: red;
+    }
+}
 
 </style>
 
@@ -19,9 +30,17 @@
         <router-link to="/user/foo">Go to user/foo home</router-link>
         <router-link to="/user/bar">Go to user/bar home</router-link>
     </p>
+    <p>
+        <router-link :to="{name:'foo'}">Go to Foo</router-link>
+        <router-link to="/">Go to root</router-link>
+    </p>
     <!-- 路由出口 -->
     <!-- 路由匹配到的组件将渲染在这里 -->
-    <router-view></router-view>
+    <!-- 如果 router-view 没有设置名字，那么默认为 default -->
+    <router-view class="view one"></router-view>
+
+    <router-view class="view two" name="a"></router-view>
+    <router-view class="view three" name="b"></router-view>
 
     <!-- <img src="./common/img/logo.png">
     <h1>{{msg}}</h1>
@@ -54,8 +73,7 @@ export default {
     },
     watch: {
         '$route' (to, from) {
-            console.log('router to: ' + to.path);
-            console.log('router from: ' + from.path);
+            console.info('route: "' + from.path + '" ⟶ "' + to.path + '"');
         }
     }
 }

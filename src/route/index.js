@@ -13,7 +13,22 @@
 // 我们晚点再讨论嵌套路由。
 export const routes = [
     {
+        path: '/',
+        components: {
+            default: resolve => {
+                require(['../view/foo.vue'], resolve);
+            },
+            a: resolve => {
+                require(['../view/bar.vue'], resolve);
+            },
+            b: resolve => {
+                require(['../view/home.vue'], resolve);
+            }
+        }
+    },
+    {
         path: '/foo',
+        name: 'foo',
         component: resolve => {
             require(['../view/foo.vue'], resolve);
         }
