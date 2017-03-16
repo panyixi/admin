@@ -53,6 +53,9 @@ export const routes = [
                 path: '',
                 component: resolve => {
                     require(['../view/home.vue'], resolve);
+                },
+                meta: {
+                    requiresAuth: true
                 }
             }
             // {
