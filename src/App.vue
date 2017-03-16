@@ -9,10 +9,6 @@
     margin-top: px2rem(60);
 }
 
-.router-link-active {
-    color: red;
-}
-
 .view {
     &.one {
         color: #333;

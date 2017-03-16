@@ -10,7 +10,7 @@ h2 {
 }
 
 a {
-    color: $vue-green;
+    color: $green;
 }
 
 </style>
