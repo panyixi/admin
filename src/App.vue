@@ -6,7 +6,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    margin-top: 60px;
+    margin-top: px2rem(60);
 }
 
 .router-link-active {
@@ -16,10 +16,28 @@
 .view {
     &.one {
         color: #333;
+        transition: all .5s cubic-bezier(.55, 0, .1, 1);
     }
     &.two {
         color: blue;
     }
+}
+
+$x-coordinate: px2rem(30);
+.slide-left-enter,
+.slide-right-leave-active {
+    opacity: 0;
+    height: 0;
+    -webkit-transform: translate($x-coordinate, 0);
+    transform: translate($x-coordinate, 0);
+}
+
+.slide-left-leave-active,
+.slide-right-enter {
+    opacity: 0;
+    height: 0;
+    -webkit-transform: translate(-$x-coordinate, 0);
+    transform: translate(-$x-coordinate, 0);
 }
 
 </style>
@@ -41,14 +59,22 @@
     </p>
     <p>
         <router-link :to="{name:'foo'}">Go to Foo</router-link>
+        <!-- 这个链接只会在地址为 / 的时候被激活 -->
+        <router-link to="/" exact>Go to Index</router-link>
     </p>
     <!-- 路由出口 -->
     <!-- 路由匹配到的组件将渲染在这里 -->
     <!-- 如果 router-view 没有设置名字，那么默认为 default -->
-    <router-view class="view one"></router-view>
+    <!-- 使用动态的 transition name -->
+    <transition :name="transitionName">
+        <keep-alive>
+            <router-view class="view one"></router-view>
+        </keep-alive>
+    </transition>
 
     <router-view class="view two" name="a"></router-view>
     <router-view class="view three" name="b"></router-view>
+
 </div>
 
 </template>
@@ -59,12 +85,15 @@ export default {
     // name: 'app',
     data() {
         return {
-
+            transitionName: 'slide-left'
         }
     },
     watch: {
         '$route' (to, from) {
             console.info('route: "' + from.path + '" ⟶ "' + to.path + '"');
+            let toDepth = to.path.split('/').length;
+            let fromDepth = from.path.split('/').length;
+            this.transitionName = toDepth < fromDepth ? 'slide-right' : 'slide-left';
         }
     }
 }

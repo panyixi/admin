@@ -12,9 +12,18 @@ Vue.use(Vuex);
 // 3. 创建 router 实例，然后传 `routes` 配置
 // 你还可以传别的配置参数, 不过先这么简单着吧。
 const router = new VueRouter({
-    // mode: 'history', //默认 hash 模式，如 http://192.168.1.26:8000/#/foo
+    mode: 'history', //默认 hash 模式，如 http://192.168.1.26:8000/#/foo
     base: __dirname,
-    routes // （缩写）相当于 routes: routes
+    routes, // （缩写）相当于 routes: routes
+    scrollBehavior (to, from, savedPosition) {
+        // return 期望滚动到哪个的位置
+        if (savedPosition) {
+            // savedPosition is only available for popstate navigations.
+            return savedPosition;
+        } else {
+            return { x: 0, y: 0 };
+        }
+    }
 });
 // 导航钩子主要用来拦截导航，让它完成跳转或取消
 // 有多种方式可以在路由导航发生时执行钩子：全局的, 单个路由独享的, 或者组件级的
