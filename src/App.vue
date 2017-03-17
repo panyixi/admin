@@ -46,7 +46,7 @@ a {
     box-sizing: border-box;
     display: inline-block;
     padding: .4rem;
-    font-size: dpr-font-size(32);
+    @include dpr-font-size(14);
     color: $grey;
 }
 
