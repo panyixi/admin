@@ -15,7 +15,7 @@
         transition: all .5s cubic-bezier(.55, 0, .1, 1);
     }
     &.two {
-        color: blue;
+        color: $red;
     }
 }
 
@@ -37,7 +37,7 @@ $x-coordinate: px2rem(30);
 }
 
 .nav {
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 2px alpha(0.25);
     overflow-x: scroll;
     white-space: nowrap;
 }
@@ -47,7 +47,7 @@ a {
     display: inline-block;
     padding: .4rem;
     @include dpr-font-size(14);
-    color: $grey;
+    color: $dark-gray;
 }
 
 .router-link-active {
