@@ -13,6 +13,9 @@ a {
     color: $green;
 }
 
+img {
+    @include square(100);
+}
 </style>
 
 <template lang="html">
