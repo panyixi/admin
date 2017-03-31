@@ -7,7 +7,6 @@
     -moz-osx-font-smoothing: grayscale;
     -webkit-overflow-scrolling: touch;
     color: $black;
-    text-align: center;
 }
 
 .view {
@@ -36,46 +35,13 @@ $x-coordinate: px2rem(30);
     transform: translate(-$x-coordinate, 0);
 }
 
-.nav {
-    box-shadow: 0 0 2px alpha(0.25);
-    overflow-x: scroll;
-    white-space: nowrap;
-}
-
-a {
-    box-sizing: border-box;
-    display: inline-block;
-    padding: .4rem;
-    @include dpr-font-size(14);
-    color: $dark-gray;
-}
-
-.router-link-active {
-    border-bottom: 2px solid $green;
-}
-
 </style>
 
 <template>
 
 <div id="app">
-    <div class="nav">
-        <!-- 使用 router-link 组件来导航. -->
-        <!-- 通过传入 `to` 属性指定链接. -->
-        <!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->
-        <!-- 当 <router-link> 对应的路由匹配成功，将自动设置 class 属性值 .router-link-active -->
-
-        <!-- 这个链接只会在地址为 / 的时候被激活 -->
-        <router-link to="/" exact>Go to Index</router-link>
-
-        <router-link to="/foo">Go to Foo</router-link>
-        <!-- <router-link :to="{name:'foo'}">Go to Foo</router-link> -->
-
-        <router-link to="/bar">Go to Bar</router-link>
-
-        <router-link to="/user/foo">Go to user/foo home</router-link>
-        <router-link to="/user/bar">Go to user/bar home</router-link>
-    </div>
+    <!-- 顶部导航 -->
+    <top-nav></top-nav>
 
     <!-- 路由出口 -->
     <!-- 路由匹配到的组件将渲染在这里 -->
@@ -96,8 +62,13 @@ a {
 
 <script>
 
+import nav from './view/nav.vue';
+
 export default {
     // name: 'app',
+    components: {
+        'top-nav': nav
+    },
     data() {
         return {
             transitionName: 'slide-left'

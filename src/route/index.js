@@ -16,13 +16,13 @@ export const routes = [
         path: '/',
         components: {
             default: resolve => {
-                require(['../view/foo.vue'], resolve);
+                require(['../view/home.vue'], resolve);
             },
             a: resolve => {
                 require(['../view/bar.vue'], resolve);
             },
             b: resolve => {
-                require(['../view/home.vue'], resolve);
+                require(['../view/foo.vue'], resolve);
             }
         }
     },
