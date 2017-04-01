@@ -1,12 +1,20 @@
 <style scoped lang="scss">
 
 @import "./common/css/main.scss";
-#app {
+.container {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    -webkit-overflow-scrolling: touch;
+    // -webkit-overflow-scrolling: touch;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #f8f8f8;
     color: $black;
+    overflow: hidden;
+    line-height: 1.5;
 }
 
 .view {
@@ -39,7 +47,7 @@ $x-coordinate: px2rem(30);
 
 <template>
 
-<div id="app">
+<div id="app" class="container">
     <!-- 顶部导航 -->
     <top-nav></top-nav>
 
