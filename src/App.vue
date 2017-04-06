@@ -64,6 +64,7 @@ $x-coordinate: px2rem(30);
     <router-view class="view two" name="a"></router-view>
     <router-view class="view three" name="b"></router-view>
 
+    <tabbar></tabbar>
 </div>
 
 </template>
@@ -71,11 +72,13 @@ $x-coordinate: px2rem(30);
 <script>
 
 import nav from './view/nav.vue';
+import tabbar from './common/tpl/tabbar.vue';
 
 export default {
     // name: 'app',
     components: {
-        'top-nav': nav
+        'top-nav': nav,
+        tabbar
     },
     data() {
         return {
