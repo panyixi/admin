@@ -3,7 +3,6 @@
 @import "../common/css/main.scss";
 .wrapper {
     text-align: center;
-    margin-top: px2rem(40);
     h1 {
         font-weight: bold;
         @include dpr-font-size(16);
@@ -28,6 +27,9 @@
 <template>
 
 <div class="wrapper">
+    <!-- 顶部导航 -->
+    <top-nav></top-nav>
+    
     <img src="../common/img/logo.png" class="logo">
     <h1>{{msg}}</h1>
     <h2>Essential Links</h2>
@@ -49,8 +51,11 @@
 </template>
 
 <script>
-
+import nav from '../common/tpl/navbar/navbar.vue';
 export default {
+    components: {
+        'top-nav':nav
+    },
     data() {
         return {
             msg: 'Welcome to Your Vue.js App'

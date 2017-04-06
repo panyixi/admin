@@ -1,6 +1,6 @@
 <style scoped lang="scss">
 
-@import "../../common/css/main.scss";
+@import "../../css/main.scss";
 .tabbar {
     display: -webkit-box;
     display: -webkit-flex;
@@ -66,34 +66,50 @@
 
 </div> -->
 <div class="tabbar">
-    <a href="javascript:;" class="tabbar__item bar__item_on">
+    <a href="javascript:;" @click="changeTab(tab)"
+    :class="['tabbar__item', {'bar__item_on': tab.selected}]"
+    v-for="tab in tabs">
         <svg class="tabbar__icon" aria-hidden="true">
-            <use xlink:href="#icon-wxbzhuye"></use>
+            <use :xlink:href="tab.icon"></use>
         </svg>
-        <p class="tabbar__label">首页</p>
-    </a>
-    <a href="javascript:;" class="tabbar__item">
-        <svg class="tabbar__icon" aria-hidden="true">
-            <use xlink:href="#icon-search"></use>
-        </svg>
-        <p class="tabbar__label">发现</p>
-    </a>
-    <a href="javascript:;" class="tabbar__item">
-        <img src="../../common/img/logo.png" alt="" class="tabbar__icon">
-        <p class="tabbar__label">消息</p>
-    </a>
-    <a href="javascript:;" class="tabbar__item">
-        <svg class="tabbar__icon" aria-hidden="true">
-            <use xlink:href="#icon-account"></use>
-        </svg>
-        <p class="tabbar__label">我</p>
+        <p class="tabbar__label">{{tab.label}}</p>
     </a>
 </div>
 
 </template>
 
 <script>
-import iconfont from '../../common/img/tabbar/iconfont.js'
-export default {}
+
+import iconfont from './font/iconfont.js';
+export default {
+    data() {
+        return {
+            tabs: [{
+                label: '首页',
+                icon: '#icon-wxbzhuye',
+                selected: true
+            }, {
+                label: '发现',
+                icon: '#icon-search',
+                selected: false
+            }, {
+                label: '消息',
+                icon: '#icon-comments',
+                selected: false
+            }, {
+                label: '我',
+                icon: '#icon-account',
+                selected: false
+            }]
+        };
+    },
+    methods: {
+        changeTab(tab) {
+            this.tabs.forEach(d => {
+                d.selected = d.label !== tab.label ? false : true;
+            });
+        }
+    }
+}
 
 </script>

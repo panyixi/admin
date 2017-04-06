@@ -1,6 +1,6 @@
 <style scoped lang="scss">
 
-@import "../common/css/main.scss";
+@import "../../css/main.scss";
 .nav {
     box-shadow: 0 0 2px alpha(0.25);
     overflow-x: scroll;

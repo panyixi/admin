@@ -48,9 +48,6 @@ $x-coordinate: px2rem(30);
 <template>
 
 <div id="app" class="container">
-    <!-- 顶部导航 -->
-    <top-nav></top-nav>
-
     <!-- 路由出口 -->
     <!-- 路由匹配到的组件将渲染在这里 -->
     <!-- 如果 router-view 没有设置名字，那么默认为 default -->
@@ -70,14 +67,11 @@ $x-coordinate: px2rem(30);
 </template>
 
 <script>
-
-import nav from './view/nav.vue';
-import tabbar from './common/tpl/tabbar.vue';
+import tabbar from './common/tpl/tabbar/tabbar.vue';
 
 export default {
     // name: 'app',
     components: {
-        'top-nav': nav,
         tabbar
     },
     data() {
